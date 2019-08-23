@@ -12,13 +12,16 @@ class UrlsController < ApplicationController
     end
 
     def create
-        # @todo check for target url in database so we don't recreate
-        @url = Url.new(params.require(:url).permit(:target_url))
-        @url.save
-        @url.shortened_url = convertTo62(@url.id)
-        @url.save
-        render 'show'
-    
+        if (Url.where("target_url = ?", params[:url][:target_url]).exists?)
+            @url = Url.where("target_url = ?", params[:url][:target_url]).first()
+            render 'show'
+        else
+            @url = Url.new(params.require(:url).permit(:target_url))
+            @url.save
+            @url.shortened_url = convertTo62(@url.id)
+            @url.save
+            render 'show'
+        end
     end
 
     def goto
