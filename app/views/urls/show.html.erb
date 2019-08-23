@@ -1,0 +1,10 @@
+<h1>Create another Url</h1>
+
+<% if @url && @url.target_url %>
+<div>
+<h2>Your url</h2>
+<%= link_to request.base_url + '/t/' + @url.shortened_url, request.base_url + '/t/' + @url.shortened_url %>
+</div>
+<% end %>
+
+<%= render 'form'%>
