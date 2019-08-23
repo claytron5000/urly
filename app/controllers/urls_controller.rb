@@ -26,8 +26,7 @@ class UrlsController < ApplicationController
         @index = convertFrom62(@shortened)
         @url = Url.find_by_id(@index)
         if @url != nil
-            # @todo figure out how to properly prefix
-            redirect_to 'http://' + @url.target_url
+            redirect_to @url.target_url
         else
             redirect_to request.base_url
         end

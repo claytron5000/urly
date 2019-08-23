@@ -1,7 +1,7 @@
 <%= form_with scope: @url, url: urls_path, local: true do |form| %>
     <p>
         <%= form.label :target_url %>
-        <%= form.text_field :target_url %>
+        <%= form.url_field :target_url %>
     </p>
     <p>
         <%= form.submit %>
