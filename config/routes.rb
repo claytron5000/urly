@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   # root 'urls#new'
   root to: 'home#index'
-  get 't/:shortened_url', to: 'urls#goto'
+  get '/:shortened_url', to: 'urls#goto'
   namespace :api do
     namespace :v1 do
       resources :urls, only: [:create]

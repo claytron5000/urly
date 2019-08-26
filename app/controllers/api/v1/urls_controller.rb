@@ -12,19 +12,16 @@ class Api::V1::UrlsController < ApplicationController
     end
 
     def create
+        
         if (Url.where("target_url = ?", params[:url][:target_url]).exists?)
-            # render plain: params[:url]
             @url = Url.where("target_url = ?", params[:url][:target_url]).first()
             render json: @url
-            # render 'show'
         else
-            # render plain: params[:url]
             @url = Url.new(params.require(:url).permit(:target_url))
             @url.save
             @url.shortened_url = convertTo62(@url.id)
             @url.save
             render json: @url
-            # render 'show'
         end
     end
 
