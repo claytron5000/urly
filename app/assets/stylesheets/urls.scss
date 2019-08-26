@@ -1,3 +1,35 @@
 // Place all the styles related to the Urls controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+html {
+    font-family: sans-serif;
+    color: #222;
+    background-color: #fefefe;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 62vh;
+}
+
+main {
+    text-align: center;
+}
+
+:last-child.shortener {
+    height: 3rem;
+}
+
+.copy-link {
+    margin-top: 1rem;
+    a {
+        margin-right: 1rem;
+    }
+}
+
+input#target_url {
+    margin-left: 1rem;
+    margin-right: 1rem;
+}

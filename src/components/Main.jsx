@@ -45,7 +45,7 @@ export default class Main extends React.Component {
         const pageTitle = this.state.shortUrl ? "Copy this Url" : "Create a Short Url";
         const link = this.state.shortUrl
             ?
-            <form onSubmit={e => this.copy(e)}>
+            <form className={"copy-link"} onSubmit={e => this.copy(e)}>
                 <a href={this.state.shortUrl}>{this.state.shortUrl}</a>
                 <input id="url" value={this.state.shortUrl} type="hidden" />
                 <button>Copy</button>
@@ -56,7 +56,7 @@ export default class Main extends React.Component {
         return (
             <main>
                 <h1>{pageTitle}</h1>
-                <form onSubmit={e => this.submit(e)}>
+                <form className={"shortener"} onSubmit={e => this.submit(e)}>
                     <label htmlFor="target_url">Shorten this Url</label>
                     <input type="text" id="target_url" name="url[target_url]" />
                     <button>Shorten It!</button>
