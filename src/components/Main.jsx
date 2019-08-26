@@ -32,17 +32,14 @@ export default class Main extends React.Component {
     copy(e) {
 
         e.preventDefault()
-        const input = document.getElementById("url");
-        input.select();
-        document.execCommand("copy");
+        const input = document.querySelector("#url")
+        // In order to properly select the content of the input, we make it type text.
+        input.type = 'text'
+        input.select()
+        document.execCommand("copy")
+        input.type = 'hidden'
 
         return false
-    }
-
-    fakeClick() {
-
-        window.location = this.state.shortUrl
-
     }
 
     render() {
@@ -50,7 +47,8 @@ export default class Main extends React.Component {
         const link = this.state.shortUrl
             ?
             <form onSubmit={e => this.copy(e)}>
-                <input onChange={() => { }} onClick={this.fakeClick} id="url" value={this.state.shortUrl} type="text" />
+                <a href={this.state.shortUrl}>{this.state.shortUrl}</a>
+                <input id="url" value={this.state.shortUrl} type="hidden" />
                 <button>Copy</button>
 
             </form>
