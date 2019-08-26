@@ -6,7 +6,6 @@ export default class Main extends React.Component {
 
         super(props);
         this.state = { shortUrl: null };
-        this.fakeClick = this.fakeClick.bind(this)
 
     }
 
